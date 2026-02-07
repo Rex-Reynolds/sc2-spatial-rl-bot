@@ -29,5 +29,6 @@ Thumbs.db
 # Project specific
 replays/
 *.SC2Replay
+optimization_results/
 rl/models/
 rl/logs/
