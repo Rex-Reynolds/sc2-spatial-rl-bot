@@ -1,0 +1,23 @@
+[project]
+name = "ai-starcraft"
+version = "0.1.0"
+description = "StarCraft II AI vs AI framework with reinforcement learning"
+requires-python = ">=3.10"
+dependencies = [
+    "burnysc2>=7.1.0",
+]
+
+[project.optional-dependencies]
+rl = [
+    "gymnasium",
+    "stable-baselines3",
+    "numpy",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bots*", "scripts*"]
+exclude = ["replays*"]
