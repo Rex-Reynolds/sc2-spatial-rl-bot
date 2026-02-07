@@ -28,12 +28,14 @@ class RLBot(BotAI):
         "no_op",
     ]
 
-    def __init__(self, env):
+    def __init__(self, env, player_id=1, policy=None):
         super().__init__()
         self.env = env
+        self.player_id = player_id  # 1 or 2
+        self.custom_policy = policy  # For opponent in self-play
         self.attack_started = False
 
-        # Reward tracking
+        # Reward tracking (only for player 1)
         self.prev_enemy_units = 0
         self.prev_own_units = 0
         self.prev_minerals = 0
@@ -66,26 +68,40 @@ class RLBot(BotAI):
         # Get observation
         obs = self._get_observation()
 
-        # Get action from policy (or random if no policy set)
-        if self.env.policy is not None:
-            action, _ = self.env.policy(obs)
-            action = int(action)  # Convert from numpy
+        # Get action from appropriate policy
+        if self.player_id == 1:
+            # Player 1: use env.policy (the one being trained)
+            if self.env.policy is not None:
+                action, _ = self.env.policy(obs)
+                action = int(action)  # Convert from numpy
+            else:
+                # Random action if no policy
+                action = np.random.randint(0, 7)
+
+            # Execute action
+            await self._execute_action(action)
+
+            # Calculate reward for this step (only for player 1)
+            reward = self._calculate_step_reward()
+
+            # Check if game is done
+            done = self._check_if_done()
+
+            # Add to trajectory (only player 1's trajectory is used for training)
+            info = {"step": self.step_count}
+            self.env.add_step_to_trajectory(obs, action, reward, done, info)
+
         else:
-            # Random action if no policy
-            action = np.random.randint(0, 7)
+            # Player 2: use custom_policy (opponent in self-play)
+            if self.custom_policy is not None:
+                action, _ = self.custom_policy(obs)
+                action = int(action)
+            else:
+                # Fallback to random
+                action = np.random.randint(0, 7)
 
-        # Execute action
-        await self._execute_action(action)
-
-        # Calculate reward for this step
-        reward = self._calculate_step_reward()
-
-        # Check if game is done
-        done = self._check_if_done()
-
-        # Add to trajectory
-        info = {"step": self.step_count}
-        self.env.add_step_to_trajectory(obs, action, reward, done, info)
+            # Execute action (no trajectory recording for player 2)
+            await self._execute_action(action)
 
         # Basic worker distribution
         await self.distribute_workers()

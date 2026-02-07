@@ -64,6 +64,21 @@ def main():
         action="store_true",
         help="Disable TensorBoard logging",
     )
+    parser.add_argument(
+        "--headless",
+        action="store_true",
+        help="Run without game window (faster, for background training)",
+    )
+    parser.add_argument(
+        "--self-play",
+        action="store_true",
+        help="Train against itself (self-play mode)",
+    )
+    parser.add_argument(
+        "--opponent-model",
+        default=None,
+        help="Path to opponent model for self-play (uses same model if not specified)",
+    )
 
     args = parser.parse_args()
 
@@ -77,8 +92,30 @@ def main():
     print()
 
     # Create environment
-    env = make_env(opponent=args.opponent, realtime=False)
+    # Note: realtime=False makes it fast, but window still shows on macOS
+    # True headless requires SC2 to run without display
+
+    # Set up opponent policy for self-play
+    opponent_policy = None
+    if args.self_play:
+        print("Self-play mode enabled!")
+        if args.opponent_model:
+            print(f"Loading opponent model: {args.opponent_model}")
+            opponent_model = PPO.load(args.opponent_model)
+            opponent_policy = lambda obs: opponent_model.predict(obs, deterministic=False)
+        else:
+            print("Opponent will use same model as player 1 (true self-play)")
+            # opponent_policy will be set to the same model after it's created
+
+    env = make_env(
+        opponent=args.opponent if not args.self_play else "SelfPlay",
+        opponent_policy=opponent_policy,
+        realtime=False
+    )
     env = Monitor(env)  # Wrap for logging
+
+    if args.headless:
+        print("Note: Headless mode requested. Game window may still appear on macOS.")
 
     # Create or load model
     if args.load_model:
@@ -109,6 +146,11 @@ def main():
         return model.predict(obs, deterministic=False)
 
     env.unwrapped.policy = policy_fn
+
+    # For true self-play (same model vs itself), set opponent policy too
+    if args.self_play and not args.opponent_model:
+        print("Setting up true self-play: same model will play both sides")
+        env.unwrapped.opponent_policy = policy_fn
 
     # Callbacks for saving and episode limiting
     checkpoint_callback = CheckpointCallback(

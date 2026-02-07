@@ -35,6 +35,7 @@ class SC2Env(gym.Env):
     def __init__(
         self,
         opponent="IdleBot",
+        opponent_policy=None,  # For self-play: pass a policy function
         map_name="Simple64",
         max_game_time=600,
         realtime=False,
@@ -44,6 +45,7 @@ class SC2Env(gym.Env):
 
         self.opponent_name = opponent
         self.opponent_class = self._get_opponent_class(opponent)
+        self.opponent_policy = opponent_policy  # Policy for opponent (if RL)
         self.map_name = map_name
         self.max_game_time = max_game_time
         self.realtime = realtime
@@ -65,7 +67,7 @@ class SC2Env(gym.Env):
         self.trajectory_idx = 0
         self.game_result = None
 
-        # Policy function (set by training loop)
+        # Policy function (set by training loop) - for player 1
         self.policy = None
 
     def _get_opponent_class(self, opponent: str):
@@ -134,14 +136,25 @@ class SC2Env(gym.Env):
         try:
             # Create bot that will collect the trajectory
             from rl.rl_bot import RLBot
-            rl_bot = RLBot(self)
+            rl_bot = RLBot(self, player_id=1)
+
+            # Create opponent - either RL or scripted
+            if self.opponent_policy is not None:
+                # Self-play mode: opponent is also an RL agent
+                print(f"Running self-play: RLAgent vs RLAgent")
+                opponent_bot = RLBot(self, player_id=2, policy=self.opponent_policy)
+                opponent_name = "RLAgent2"
+            else:
+                # Standard mode: opponent is scripted bot
+                opponent_bot = self.opponent_class()
+                opponent_name = self.opponent_name
 
             # Run the game
             result = run_game(
                 maps.get(self.map_name),
                 [
                     Bot(Race.Terran, rl_bot, name="RLAgent"),
-                    Bot(Race.Terran, self.opponent_class(), name=self.opponent_name),
+                    Bot(Race.Terran, opponent_bot, name=opponent_name),
                 ],
                 realtime=self.realtime,
             )
@@ -178,6 +191,6 @@ class SC2Env(gym.Env):
         pass
 
 
-def make_env(opponent="IdleBot", **kwargs):
+def make_env(opponent="IdleBot", opponent_policy=None, **kwargs):
     """Factory function to create SC2 environment."""
-    return SC2Env(opponent=opponent, **kwargs)
+    return SC2Env(opponent=opponent, opponent_policy=opponent_policy, **kwargs)
