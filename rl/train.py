@@ -73,6 +73,13 @@ def main():
             tensorboard_log=f"./rl/logs/{args.model_name}",
         )
 
+    # Set the environment's policy to use the model
+    def policy_fn(obs):
+        """Policy function that queries the model."""
+        return model.predict(obs, deterministic=False)
+
+    env.unwrapped.policy = policy_fn
+
     # Callbacks for saving
     checkpoint_callback = CheckpointCallback(
         save_freq=10000,

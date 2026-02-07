@@ -1,7 +1,8 @@
 """
-RL-controlled bot that executes actions from the RL agent.
+RL-controlled bot that executes actions from the RL agent's policy.
 
-This bot bridges the Gymnasium environment with the SC2 game.
+Simplified approach: Bot calls env.policy() to get actions and records
+trajectory for training.
 """
 
 from sc2.bot_ai import BotAI
@@ -12,10 +13,9 @@ import numpy as np
 
 class RLBot(BotAI):
     """
-    Bot controlled by RL agent.
+    Bot controlled by RL agent's policy.
 
-    Receives actions from the Gymnasium environment and executes them.
-    Sends observations back to the environment.
+    Collects trajectory during game for training.
     """
 
     ACTION_NAMES = [
@@ -31,75 +31,67 @@ class RLBot(BotAI):
     def __init__(self, env):
         super().__init__()
         self.env = env
-        self.next_action = None  # Action to execute (set by env.step())
         self.attack_started = False
 
         # Reward tracking
-        self.reward_tracker = {
-            "enemy_units_killed": 0,
-            "own_units_lost": 0,
-            "minerals_collected": 0,
-            "gas_collected": 0,
-        }
-
-        # Previous state for tracking changes
         self.prev_enemy_units = 0
         self.prev_own_units = 0
         self.prev_minerals = 0
         self.prev_gas = 0
 
+        # Step tracking
+        self.step_count = 0
+
     async def on_start(self):
         """Initialize bot on game start."""
-        self.client.game_step = 8  # Lower frequency for RL decisions
-
-        # Send initial observation to environment
-        obs = self._get_observation()
-        self.env.obs_queue.put(obs)
+        self.client.game_step = 8
 
     async def on_step(self, iteration: int):
         """
         Main game loop step.
 
-        1. Update observation
-        2. Wait for action from agent
+        Every N iterations:
+        1. Get observation
+        2. Ask policy for action
         3. Execute action
-        4. Track rewards
+        4. Record to trajectory
         """
-        # Only make RL decisions every N steps (to reduce action frequency)
-        if iteration % 16 != 0:  # Every 16 game steps (~1 second)
+        # Only make RL decisions every 16 steps (~1 second)
+        if iteration % 16 != 0:
             await self.distribute_workers()
             return
 
-        # Update observation
+        self.step_count += 1
+
+        # Get observation
         obs = self._get_observation()
-        self.env.current_obs = obs
 
-        # Send observation to RL agent
-        self.env.obs_queue.put(obs)
+        # Get action from policy (or random if no policy set)
+        if self.env.policy is not None:
+            action, _ = self.env.policy(obs)
+            action = int(action)  # Convert from numpy
+        else:
+            # Random action if no policy
+            action = np.random.randint(0, 7)
 
-        # Track reward metrics
-        self._update_reward_tracker()
+        # Execute action
+        await self._execute_action(action)
+
+        # Calculate reward for this step
+        reward = self._calculate_step_reward()
+
+        # Check if game is done
+        done = self._check_if_done()
+
+        # Add to trajectory
+        info = {"step": self.step_count}
+        self.env.add_step_to_trajectory(obs, action, reward, done, info)
 
         # Basic worker distribution
         await self.distribute_workers()
 
-        # Wait for action from RL agent
-        try:
-            action = self.env.action_queue.get(timeout=5.0)
-            await self._execute_action(action)
-        except:
-            # Timeout or queue empty - do nothing
-            pass
-
-        # Check game end
-        await self._check_game_end()
-
     def _get_observation(self) -> np.ndarray:
-        """
-        Get current observation (11 features).
-
-        Returns normalized [0, 1] feature vector.
-        """
+        """Get current observation (11 features, normalized to [0, 1])."""
         # Normalize values to [0, 1]
         minerals_norm = min(self.minerals / 2000.0, 1.0)
         gas_norm = min(self.vespene / 2000.0, 1.0)
@@ -146,18 +138,7 @@ class RLBot(BotAI):
         return obs
 
     async def _execute_action(self, action: int):
-        """
-        Execute the action chosen by the RL agent.
-
-        Actions:
-        0: train_scv
-        1: build_supply_depot
-        2: build_barracks
-        3: train_marine
-        4: attack
-        5: defend
-        6: no_op
-        """
+        """Execute the action chosen by the RL agent."""
         if action == 0:  # train_scv
             await self._train_scv()
         elif action == 1:  # build_supply_depot
@@ -248,14 +229,15 @@ class RLBot(BotAI):
             if marine.distance_to(defend_pos) > 10:
                 marine.move(defend_pos)
 
-    def _update_reward_tracker(self):
-        """Update reward tracking metrics."""
+    def _calculate_step_reward(self) -> float:
+        """Calculate reward for this step."""
+        reward = 0.0
+
         # Enemy units killed
         current_enemy_units = len(self.enemy_units)
         if current_enemy_units < self.prev_enemy_units:
-            self.reward_tracker["enemy_units_killed"] += (
-                self.prev_enemy_units - current_enemy_units
-            )
+            kills = self.prev_enemy_units - current_enemy_units
+            reward += kills * 0.1
         self.prev_enemy_units = current_enemy_units
 
         # Own units lost
@@ -263,27 +245,29 @@ class RLBot(BotAI):
             self.units(UnitTypeId.MARINE).amount + self.supply_workers
         )
         if current_own_units < self.prev_own_units:
-            self.reward_tracker["own_units_lost"] += (
-                self.prev_own_units - current_own_units
-            )
+            losses = self.prev_own_units - current_own_units
+            reward -= losses * 0.05
         self.prev_own_units = current_own_units
 
-        # Economy
+        # Economy growth (small bonus)
         if self.minerals > self.prev_minerals:
-            self.reward_tracker["minerals_collected"] += (
-                self.minerals - self.prev_minerals
-            )
+            reward += (self.minerals - self.prev_minerals) * 0.0001
         self.prev_minerals = self.minerals
 
         if self.vespene > self.prev_gas:
-            self.reward_tracker["gas_collected"] += self.vespene - self.prev_gas
+            reward += (self.vespene - self.prev_gas) * 0.0002
         self.prev_gas = self.vespene
 
-    async def _check_game_end(self):
-        """Check if game has ended and record result."""
+        return reward
+
+    def _check_if_done(self) -> bool:
+        """Check if game has ended."""
         if not self.townhalls:
             # We lost (no command centers)
             self.env.game_result = Result.Defeat
+            return True
         elif not self.enemy_structures:
             # We won (enemy has no structures)
             self.env.game_result = Result.Victory
+            return True
+        return False
