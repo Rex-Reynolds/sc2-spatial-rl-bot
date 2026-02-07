@@ -45,6 +45,7 @@ class MechBot(BotAI):
         await self.distribute_workers()
         await self.train_scvs()
         await self.build_supply_depots()
+        await self.build_refineries()  # CRITICAL: Need gas for mech!
         await self.expand()
         await self.build_production()
         await self.build_armory()
@@ -83,6 +84,29 @@ class MechBot(BotAI):
                 )
                 if location:
                     worker.build(UnitTypeId.SUPPLYDEPOT, location)
+
+    async def build_refineries(self):
+        """Build refineries on vespene geysers - CRITICAL for mech!"""
+        # Build 2 refineries per base (one per geyser)
+        for townhall in self.townhalls.ready:
+            # Find vespene geysers near this base
+            vespenes = self.vespene_geyser.closer_than(10, townhall)
+            for vespene in vespenes:
+                # Check if refinery already exists here
+                if self.structures(UnitTypeId.REFINERY).closer_than(1, vespene):
+                    continue
+
+                # Check if one is being built
+                if self.already_pending(UnitTypeId.REFINERY):
+                    continue
+
+                # Build refinery
+                if self.can_afford(UnitTypeId.REFINERY):
+                    workers = self.workers.gathering
+                    if workers:
+                        worker = workers.closest_to(vespene)
+                        worker.build(UnitTypeId.REFINERY, vespene)
+                        return
 
     async def expand(self):
         """Expand to second base (crucial for mech economy)."""
