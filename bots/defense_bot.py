@@ -193,9 +193,17 @@ class DefenseBot(BotAI):
 
         # Attack mode: push to enemy base
         if self.attack_started:
-            for marine in marines:
-                if marine.is_idle:
-                    marine.attack(enemy_start)
+            # Target visible enemies first, otherwise attack-move to base
+            if self.enemy_units or self.enemy_structures:
+                all_enemies = self.enemy_units | self.enemy_structures
+                for marine in marines:
+                    if marine.is_idle:
+                        closest_enemy = all_enemies.closest_to(marine)
+                        marine.attack(closest_enemy)
+            else:
+                for marine in marines:
+                    if marine.is_idle:
+                        marine.attack(enemy_start)
         else:
             # Defensive positioning: keep marines near defense position
             for marine in marines:

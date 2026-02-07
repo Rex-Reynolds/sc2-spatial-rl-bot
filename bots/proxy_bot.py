@@ -181,16 +181,34 @@ class ProxyBot(BotAI):
             print(f"[ProxyBot] Proxy rush started with {len(marines)} marines!")
 
         if marines:
-            # Send all marines to enemy base immediately
-            for marine in marines:
-                if marine.is_idle or marine.distance_to(enemy_start) > 5:
-                    marine.attack(enemy_start)
+            # Target visible enemies first, otherwise attack-move to base
+            if self.enemy_units or self.enemy_structures:
+                all_enemies = self.enemy_units | self.enemy_structures
+                # Send all marines to attack closest enemies
+                for marine in marines:
+                    if marine.is_idle or marine.distance_to(enemy_start) > 5:
+                        closest_enemy = all_enemies.closest_to(marine)
+                        marine.attack(closest_enemy)
 
-            # All-in: Once we have 6+ marines at enemy, send all workers too
-            marines_at_enemy = marines.filter(
-                lambda m: m.distance_to(enemy_start) < 30
-            )
-            if len(marines_at_enemy) >= 6:
-                for worker in self.workers:
-                    if worker.is_gathering:
-                        worker.attack(enemy_start)
+                # All-in: Once we have 6+ marines at enemy, send all workers too
+                marines_at_enemy = marines.filter(
+                    lambda m: m.distance_to(enemy_start) < 30
+                )
+                if len(marines_at_enemy) >= 6:
+                    for worker in self.workers:
+                        if worker.is_gathering:
+                            closest_enemy = all_enemies.closest_to(worker)
+                            worker.attack(closest_enemy)
+            else:
+                # No visible enemies, attack-move to search
+                for marine in marines:
+                    if marine.is_idle or marine.distance_to(enemy_start) > 5:
+                        marine.attack(enemy_start)
+
+                marines_at_enemy = marines.filter(
+                    lambda m: m.distance_to(enemy_start) < 30
+                )
+                if len(marines_at_enemy) >= 6:
+                    for worker in self.workers:
+                        if worker.is_gathering:
+                            worker.attack(enemy_start)

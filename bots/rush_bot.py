@@ -127,15 +127,29 @@ class RushBot(BotAI):
 
         # Once attack is started, send everything
         if self.attack_started:
-            # Send all marines to attack
-            for marine in marines:
-                if marine.is_idle or marine.is_gathering:
-                    marine.attack(enemy_start)
+            # Target enemy units if visible, otherwise attack-move to enemy base
+            if self.enemy_units or self.enemy_structures:
+                # Attack closest enemy unit/structure
+                all_enemies = self.enemy_units | self.enemy_structures
+                for marine in marines:
+                    if marine.is_idle or marine.is_gathering:
+                        closest_enemy = all_enemies.closest_to(marine)
+                        marine.attack(closest_enemy)
 
-            # All-in: Send all workers too
-            for worker in self.workers:
-                if worker.is_idle or worker.is_gathering:
-                    worker.attack(enemy_start)
+                # All-in: Send workers too
+                for worker in self.workers:
+                    if worker.is_idle or worker.is_gathering:
+                        closest_enemy = all_enemies.closest_to(worker)
+                        worker.attack(closest_enemy)
+            else:
+                # No visible enemies, attack-move to enemy base to search
+                for marine in marines:
+                    if marine.is_idle or marine.is_gathering:
+                        marine.attack(enemy_start)
+
+                for worker in self.workers:
+                    if worker.is_idle or worker.is_gathering:
+                        worker.attack(enemy_start)
 
         # Even before attack starts, if marines are idle, send them forward
         elif marines:

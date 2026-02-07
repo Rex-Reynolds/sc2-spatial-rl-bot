@@ -159,9 +159,17 @@ class EconomyBot(BotAI):
             defense_reserve = 5
             attacking_marines = marines[:-defense_reserve] if len(marines) > defense_reserve else marines
 
-            for marine in attacking_marines:
-                if marine.is_idle or marine.distance_to(enemy_start) > 5:
-                    marine.attack(enemy_start)
+            # Target visible enemies first
+            if self.enemy_units or self.enemy_structures:
+                all_enemies = self.enemy_units | self.enemy_structures
+                for marine in attacking_marines:
+                    if marine.is_idle or marine.distance_to(enemy_start) > 5:
+                        closest_enemy = all_enemies.closest_to(marine)
+                        marine.attack(closest_enemy)
+            else:
+                for marine in attacking_marines:
+                    if marine.is_idle or marine.distance_to(enemy_start) > 5:
+                        marine.attack(enemy_start)
 
             # Keep reserve near main base
             if len(marines) > defense_reserve:
