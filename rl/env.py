@@ -98,7 +98,12 @@ class SC2Env(gym.Env):
 
         # Run complete game and collect trajectory
         print(f"\nRunning game: RLAgent vs {self.opponent_name}")
-        self._run_complete_game()
+        try:
+            self._run_complete_game()
+        except KeyboardInterrupt:
+            # Propagate KeyboardInterrupt to stop training
+            print("Training interrupted!")
+            raise
 
         # Return first observation
         if self.trajectory:
@@ -166,6 +171,11 @@ class SC2Env(gym.Env):
                 print(f"Warning: Invalid game result")
                 self.game_result = Result.Defeat
 
+        except KeyboardInterrupt:
+            # Don't catch KeyboardInterrupt - let it propagate!
+            print("\n\nTraining interrupted by user (Ctrl+C)")
+            self.game_result = Result.Defeat
+            raise  # Re-raise to stop training
         except Exception as e:
             print(f"Game error: {e}")
             import traceback

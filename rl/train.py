@@ -7,12 +7,24 @@ Usage:
 """
 
 import argparse
+import signal
+import sys
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import CheckpointCallback, EvalCallback, BaseCallback
 from stable_baselines3.common.monitor import Monitor
 import gymnasium as gym
 
 from rl.env import make_env
+
+# Global flag for graceful shutdown
+training_interrupted = False
+
+def signal_handler(sig, frame):
+    """Handle Ctrl+C gracefully."""
+    global training_interrupted
+    print("\n\n⚠️  Training interrupted! Saving model and exiting...")
+    training_interrupted = True
+    sys.exit(0)
 
 
 class EpisodeLimitCallback(BaseCallback):
@@ -36,6 +48,9 @@ class EpisodeLimitCallback(BaseCallback):
 
 
 def main():
+    # Register signal handler for Ctrl+C
+    signal.signal(signal.SIGINT, signal_handler)
+
     parser = argparse.ArgumentParser(description="Train SC2 RL agent")
     parser.add_argument(
         "--opponent",
@@ -172,16 +187,26 @@ def main():
 
     # Use generous timesteps estimate - episode callback will stop us
     total_timesteps = args.episodes * 2000
-    model.learn(
-        total_timesteps=total_timesteps,
-        callback=callbacks,
-        progress_bar=True,
-    )
 
-    # Save final model
+    try:
+        model.learn(
+            total_timesteps=total_timesteps,
+            callback=callbacks,
+            progress_bar=True,
+        )
+    except KeyboardInterrupt:
+        print("\n\n⚠️  Training interrupted by user!")
+        print("Saving current model before exiting...")
+
+    # Save final model (even if interrupted)
     model_path = f"./rl/models/{args.model_name}_final"
     model.save(model_path)
-    print(f"\nTraining complete! Model saved to: {model_path}")
+    print(f"\nModel saved to: {model_path}")
+
+    if training_interrupted:
+        print("Training was interrupted. Model saved at current state.")
+    else:
+        print("Training complete!")
 
 
 if __name__ == "__main__":
