@@ -88,7 +88,18 @@ class RLBot(BotAI):
             done = self._check_if_done()
 
             # Add to trajectory (only player 1's trajectory is used for training)
-            info = {"step": self.step_count}
+            info = {
+                "step": self.step_count,
+                "result": self.env.game_result if done else None,
+            }
+
+            # Add episode info for Monitor/TensorBoard compatibility
+            if done and self.env.game_result:
+                info["episode"] = {
+                    "r": self.env.episode_reward,
+                    "l": self.step_count,
+                }
+
             self.env.add_step_to_trajectory(obs, action, reward, done, info)
 
         else:

@@ -15,6 +15,7 @@ from stable_baselines3.common.monitor import Monitor
 import gymnasium as gym
 
 from rl.env import make_env
+from rl.logging_callback import TensorBoardLoggingCallback
 
 # Global flag for graceful shutdown
 training_interrupted = False
@@ -167,17 +168,22 @@ def main():
         print("Setting up true self-play: same model will play both sides")
         env.unwrapped.opponent_policy = policy_fn
 
-    # Callbacks for saving and episode limiting
+    # Callbacks for saving, episode limiting, and logging
     checkpoint_callback = CheckpointCallback(
         save_freq=10000,
         save_path=f"./rl/models/{args.model_name}",
         name_prefix="sc2_agent",
     )
     episode_limit_callback = EpisodeLimitCallback(max_episodes=args.episodes)
+    tensorboard_callback = TensorBoardLoggingCallback(verbose=1)
 
     # Combine callbacks
     from stable_baselines3.common.callbacks import CallbackList
-    callbacks = CallbackList([checkpoint_callback, episode_limit_callback])
+    callbacks = CallbackList([
+        checkpoint_callback,
+        episode_limit_callback,
+        tensorboard_callback
+    ])
 
     # Train
     print(f"\nStarting training for {args.episodes} episodes...")
