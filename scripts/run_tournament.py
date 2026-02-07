@@ -6,7 +6,8 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
-from sc2 import maps, run_game
+from sc2 import maps
+from sc2.main import run_game
 from sc2.player import Bot
 from sc2.data import Race, Result
 
