@@ -118,8 +118,8 @@ def main():
                 result = run_game(
                     maps.get(args.map),
                     [
-                        Bot(Race.Terran, selected_bots[bot1_name]()),
-                        Bot(Race.Terran, selected_bots[bot2_name]()),
+                        Bot(Race.Terran, selected_bots[bot1_name](), name=bot1_name),
+                        Bot(Race.Terran, selected_bots[bot2_name](), name=bot2_name),
                     ],
                     realtime=False,
                     game_time_limit=args.time_limit,

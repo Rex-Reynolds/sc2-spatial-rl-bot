@@ -83,8 +83,8 @@ def main():
             result = run_game(
                 maps.get(args.map),
                 [
-                    Bot(Race.Terran, RushBot()),
-                    Bot(Race.Terran, IdleBot()),
+                    Bot(Race.Terran, RushBot(), name="RushBot"),
+                    Bot(Race.Terran, IdleBot(), name="IdleBot"),
                 ],
                 realtime=False,
                 save_replay_as=replay_path,

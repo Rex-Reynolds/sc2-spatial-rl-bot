@@ -129,8 +129,8 @@ def evaluate_parameters(
             result = run_game(
                 maps.get(map_name),
                 [
-                    Bot(Race.Terran, bot_class()),
-                    Bot(Race.Terran, opponent_class()),
+                    Bot(Race.Terran, bot_class(), name=bot_name),
+                    Bot(Race.Terran, opponent_class(), name=f"Opponent"),
                 ],
                 realtime=False,
                 game_time_limit=time_limit,
