@@ -7,7 +7,7 @@ from sc2.position import Point2
 
 
 # Tunable constants for easy iteration
-MAX_WORKERS = 12  # Stop SCV production at this count
+MAX_WORKERS = 16  # Stop SCV production at this count (start with 12)
 BARRACKS_COUNT = 2  # Number of barracks to build
 ATTACK_MARINE_THRESHOLD = 8  # Marines needed before attacking
 
@@ -54,12 +54,18 @@ class RushBot(BotAI):
 
     async def build_supply_depots(self):
         """Build supply depots when supply is low."""
-        # Build if supply is tight and we're not already building one
+        # Calculate how much supply we'll need soon
+        # Account for supply currently being built
+        supply_pending = self.already_pending(UnitTypeId.SUPPLYDEPOT) * 8
+        effective_supply_left = self.supply_left + supply_pending
+
+        # Build if supply will be tight soon (more proactive)
         if (
-            self.supply_left < 3
+            effective_supply_left < 6
             and self.supply_cap < 200
-            and not self.already_pending(UnitTypeId.SUPPLYDEPOT)
             and self.can_afford(UnitTypeId.SUPPLYDEPOT)
+            # Allow multiple depots to be built at once if needed
+            and self.already_pending(UnitTypeId.SUPPLYDEPOT) < 2
         ):
             workers = self.workers.gathering
             if workers:
@@ -77,13 +83,13 @@ class RushBot(BotAI):
         if self.structures(UnitTypeId.BARRACKS).amount >= BARRACKS_COUNT:
             return
 
-        # Need at least one supply depot before building barracks
-        if not self.structures(UnitTypeId.SUPPLYDEPOT).ready:
+        # Need at least one supply depot (built or building) before starting barracks
+        if not self.structures(UnitTypeId.SUPPLYDEPOT) and not self.already_pending(UnitTypeId.SUPPLYDEPOT):
             return
 
         if (
             self.can_afford(UnitTypeId.BARRACKS)
-            and not self.already_pending(UnitTypeId.BARRACKS)
+            and self.already_pending(UnitTypeId.BARRACKS) < BARRACKS_COUNT
         ):
             workers = self.workers.gathering
             if workers:
