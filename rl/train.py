@@ -8,11 +8,31 @@ Usage:
 
 import argparse
 from stable_baselines3 import PPO
-from stable_baselines3.common.callbacks import CheckpointCallback, EvalCallback
+from stable_baselines3.common.callbacks import CheckpointCallback, EvalCallback, BaseCallback
 from stable_baselines3.common.monitor import Monitor
 import gymnasium as gym
 
 from rl.env import make_env
+
+
+class EpisodeLimitCallback(BaseCallback):
+    """Stop training after N episodes."""
+
+    def __init__(self, max_episodes: int):
+        super().__init__()
+        self.max_episodes = max_episodes
+        self.episode_count = 0
+
+    def _on_step(self) -> bool:
+        # Count episodes (dones)
+        if self.locals.get("dones", [False])[0]:
+            self.episode_count += 1
+            print(f"\nCompleted episode {self.episode_count}/{self.max_episodes}")
+
+            if self.episode_count >= self.max_episodes:
+                print(f"\nReached {self.max_episodes} episodes. Stopping training.")
+                return False  # Stop training
+        return True  # Continue training
 
 
 def main():
@@ -39,6 +59,11 @@ def main():
         default=None,
         help="Path to existing model to continue training",
     )
+    parser.add_argument(
+        "--no-tensorboard",
+        action="store_true",
+        help="Disable TensorBoard logging",
+    )
 
     args = parser.parse_args()
 
@@ -61,17 +86,22 @@ def main():
         model = PPO.load(args.load_model, env=env)
     else:
         print("Creating new PPO model...")
-        model = PPO(
-            "MlpPolicy",
-            env,
-            verbose=1,
-            learning_rate=3e-4,
-            n_steps=2048,
-            batch_size=64,
-            n_epochs=10,
-            gamma=0.99,
-            tensorboard_log=f"./rl/logs/{args.model_name}",
-        )
+        ppo_kwargs = {
+            "policy": "MlpPolicy",
+            "env": env,
+            "verbose": 1,
+            "learning_rate": 3e-4,
+            "n_steps": 2048,
+            "batch_size": 64,
+            "n_epochs": 10,
+            "gamma": 0.99,
+        }
+
+        # Only add tensorboard_log if tensorboard is enabled
+        if not args.no_tensorboard:
+            ppo_kwargs["tensorboard_log"] = f"./rl/logs/{args.model_name}"
+
+        model = PPO(**ppo_kwargs)
 
     # Set the environment's policy to use the model
     def policy_fn(obs):
@@ -80,12 +110,17 @@ def main():
 
     env.unwrapped.policy = policy_fn
 
-    # Callbacks for saving
+    # Callbacks for saving and episode limiting
     checkpoint_callback = CheckpointCallback(
         save_freq=10000,
         save_path=f"./rl/models/{args.model_name}",
         name_prefix="sc2_agent",
     )
+    episode_limit_callback = EpisodeLimitCallback(max_episodes=args.episodes)
+
+    # Combine callbacks
+    from stable_baselines3.common.callbacks import CallbackList
+    callbacks = CallbackList([checkpoint_callback, episode_limit_callback])
 
     # Train
     print(f"\nStarting training for {args.episodes} episodes...")
@@ -93,10 +128,11 @@ def main():
     print(f"  tensorboard --logdir=./rl/logs/{args.model_name}")
     print()
 
-    total_timesteps = args.episodes * 1000  # ~1000 steps per episode
+    # Use generous timesteps estimate - episode callback will stop us
+    total_timesteps = args.episodes * 2000
     model.learn(
         total_timesteps=total_timesteps,
-        callback=checkpoint_callback,
+        callback=callbacks,
         progress_bar=True,
     )
 
