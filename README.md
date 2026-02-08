@@ -136,7 +136,11 @@ python rl/train_imitation.py --replay-dir rl/data/replays
 
 ### **1. Local Play**
 ```bash
+# Play against your bot
 python rl/play_vs_bot.py <model_path>
+
+# Watch bot play against itself (self-play analysis)
+python rl/self_play_match.py <model_path>
 ```
 
 ### **2. REST API Server**
@@ -195,7 +199,9 @@ sc2-spatial-rl-bot/
 │   ├── spatial_*.py           # Core spatial bot implementation
 │   ├── train_spatial.py       # Training script
 │   ├── play_vs_bot.py         # Human vs AI
+│   ├── self_play_match.py     # Bot vs itself (self-play)
 │   ├── api_server.py          # REST API
+│   ├── ladder_bot.py          # Tournament deployment
 │   └── *.md                   # Documentation
 │
 ├── web_demo/
