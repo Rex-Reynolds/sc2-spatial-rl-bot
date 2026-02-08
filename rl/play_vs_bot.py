@@ -7,7 +7,8 @@ Run this to play a game as a human against your trained spatial bot.
 
 import sys
 import torch
-from sc2 import maps, run_game
+from sc2 import maps
+from sc2.main import run_game
 from sc2.player import Bot, Human
 from sc2.data import Race, Difficulty
 
