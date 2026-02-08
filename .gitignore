@@ -32,3 +32,8 @@ replays/
 optimization_results/
 rl/models/
 rl/logs/
+rl/data/
+rl/population_logs/
+*.log
+training_output.log
+tensorboard.log

@@ -1,0 +1,1528 @@
+Using device: cpu
+Creating environment (opponent: IdleBot)...
+Creating spatial CNN policy...
+
+======================================================================
+STARTING TRAINING
+======================================================================
+Episodes: 10
+Learning rate: 0.0003
+Opponent: IdleBot
+======================================================================
+
+
+======================================================================
+Episode 1/10
+======================================================================
+
+Running spatial game: RLAgent vs IdleBot
+2026-02-08 10:06:57.444 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:06:57.444 | INFO     | sc2.controller:create_game:42 - Creating new game
+2026-02-08 10:06:57.444 | INFO     | sc2.controller:create_game:43 - Map:     Simple64
+2026-02-08 10:06:57.445 | INFO     | sc2.controller:create_game:44 - Players: Bot SpatialRLBot(Terran), name='SpatialRLAgent'), Bot IdleBot(Terran), name='IdleBot')
+2026-02-08 10:06:57.448 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.init_game (was Status.launched)
+2026-02-08 10:06:57.449 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:07:09.774 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:07:09.775 | INFO     | sc2.main:_play_game:220 - Player 2 - IdleBot
+2026-02-08 10:07:09.885 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:07:09.886 | INFO     | sc2.main:_play_game:220 - Player 1 - SpatialRLAgent
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+2026-02-08 10:08:38.358 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:08:38.382 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:08:38.400 | INFO     | sc2.main:_play_game:227 - Result for player 2 - IdleBot: Defeat
+2026-02-08 10:08:38.474 | INFO     | sc2.main:_play_game:227 - Result for player 1 - SpatialRLAgent: Victory
+2026-02-08 10:08:39.764 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:08:39.768 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.quit (was Status.launched)
+2026-02-08 10:08:39.768 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at 58059...
+2026-02-08 10:08:39.773 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 2 processes
+2026-02-08 10:08:41.789 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:08:41.790 | ERROR    | sc2.protocol:__request:54 - Cannot receive: Connection already closed.
+2026-02-08 10:08:41.790 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at None...
+2026-02-08 10:08:41.790 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 2 processes
+Game result: Result.Victory
+Game complete: Result.Victory
+Episode reward: 4.20
+Episode length: 325 steps
+Processing trajectory...
+Performing PPO update...
+
+Update complete:
+  Policy loss: -0.0031
+  Value loss: 0.2469
+  Entropy: 20.5468
+  Episode time: 121.5s
+
+======================================================================
+Episode 2/10
+======================================================================
+
+Running spatial game: RLAgent vs IdleBot
+2026-02-08 10:08:59.028 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:08:59.031 | INFO     | sc2.controller:create_game:42 - Creating new game
+2026-02-08 10:08:59.031 | INFO     | sc2.controller:create_game:43 - Map:     Simple64
+2026-02-08 10:08:59.031 | INFO     | sc2.controller:create_game:44 - Players: Bot SpatialRLBot(Terran), name='SpatialRLAgent'), Bot IdleBot(Terran), name='IdleBot')
+2026-02-08 10:08:59.034 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.init_game (was Status.launched)
+2026-02-08 10:08:59.035 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:09:12.197 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:09:12.201 | INFO     | sc2.main:_play_game:220 - Player 1 - SpatialRLAgent
+2026-02-08 10:09:12.362 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:09:12.362 | INFO     | sc2.main:_play_game:220 - Player 2 - IdleBot
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+Feature extraction error: x is -12, self.width is 88
+2026-02-08 10:16:42.258 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:16:42.318 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:16:42.327 | INFO     | sc2.main:_play_game:227 - Result for player 1 - SpatialRLAgent: Victory
+2026-02-08 10:16:42.434 | INFO     | sc2.main:_play_game:227 - Result for player 2 - IdleBot: Defeat
+2026-02-08 10:16:43.691 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:16:43.704 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:16:43.719 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.quit (was Status.launched)
+2026-02-08 10:16:43.719 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at 58278...
+2026-02-08 10:16:43.719 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.quit (was Status.launched)
+2026-02-08 10:16:43.719 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at 58279...
+2026-02-08 10:16:43.727 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 4 processes
+2026-02-08 10:16:45.745 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 4 processes
+Game result: Result.Victory
+Game complete: Result.Victory
+Episode reward: 3.10
+Episode length: 398 steps
+Processing trajectory...
+Performing PPO update...
+
+Update complete:
+  Policy loss: -0.0019
+  Value loss: 0.4430
+  Entropy: 20.5468
+  Episode time: 483.2s
+
+======================================================================
+Episode 3/10
+======================================================================
+
+Running spatial game: RLAgent vs IdleBot
+2026-02-08 10:17:03.264 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:17:03.265 | INFO     | sc2.controller:create_game:42 - Creating new game
+2026-02-08 10:17:03.265 | INFO     | sc2.controller:create_game:43 - Map:     Simple64
+2026-02-08 10:17:03.265 | INFO     | sc2.controller:create_game:44 - Players: Bot SpatialRLBot(Terran), name='SpatialRLAgent'), Bot IdleBot(Terran), name='IdleBot')
+2026-02-08 10:17:03.267 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.init_game (was Status.launched)
+2026-02-08 10:17:03.278 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:17:13.954 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:17:13.954 | INFO     | sc2.main:_play_game:220 - Player 2 - IdleBot
+2026-02-08 10:17:14.093 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:17:14.094 | INFO     | sc2.main:_play_game:220 - Player 1 - SpatialRLAgent
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+2026-02-08 10:18:41.276 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:18:41.305 | INFO     | sc2.main:_play_game:227 - Result for player 2 - IdleBot: Defeat
+2026-02-08 10:18:41.305 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:18:41.374 | INFO     | sc2.main:_play_game:227 - Result for player 1 - SpatialRLAgent: Victory
+2026-02-08 10:18:42.538 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:18:42.539 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.quit (was Status.launched)
+2026-02-08 10:18:42.539 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at 59297...
+2026-02-08 10:18:42.540 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 6 processes
+2026-02-08 10:18:44.553 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:18:44.554 | ERROR    | sc2.protocol:__request:54 - Cannot receive: Connection already closed.
+2026-02-08 10:18:44.554 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at None...
+2026-02-08 10:18:44.554 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 6 processes
+Game result: Result.Victory
+Game complete: Result.Victory
+Episode reward: 3.10
+Episode length: 371 steps
+Processing trajectory...
+Performing PPO update...
+
+Update complete:
+  Policy loss: 0.0019
+  Value loss: 0.3778
+  Entropy: 20.5468
+  Episode time: 118.7s
+
+======================================================================
+Episode 4/10
+======================================================================
+
+Running spatial game: RLAgent vs IdleBot
+2026-02-08 10:18:59.909 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:18:59.909 | INFO     | sc2.controller:create_game:42 - Creating new game
+2026-02-08 10:18:59.909 | INFO     | sc2.controller:create_game:43 - Map:     Simple64
+2026-02-08 10:18:59.909 | INFO     | sc2.controller:create_game:44 - Players: Bot SpatialRLBot(Terran), name='SpatialRLAgent'), Bot IdleBot(Terran), name='IdleBot')
+2026-02-08 10:18:59.911 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.init_game (was Status.launched)
+2026-02-08 10:18:59.921 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:19:11.386 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:19:11.389 | INFO     | sc2.main:_play_game:220 - Player 1 - SpatialRLAgent
+2026-02-08 10:19:11.503 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.in_game (was None)
+2026-02-08 10:19:11.503 | INFO     | sc2.main:_play_game:220 - Player 2 - IdleBot
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+Feature extraction error: y is -13, self.height is 96
+2026-02-08 10:39:15.938 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:39:16.034 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.ended (was Status.in_game)
+2026-02-08 10:39:16.085 | INFO     | sc2.main:_play_game:227 - Result for player 2 - IdleBot: Defeat
+2026-02-08 10:39:16.191 | INFO     | sc2.main:_play_game:227 - Result for player 1 - SpatialRLAgent: Victory
+2026-02-08 10:39:19.722 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:39:19.763 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.quit (was Status.launched)
+2026-02-08 10:39:19.763 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at 59586...
+2026-02-08 10:39:19.799 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 8 processes
+2026-02-08 10:39:21.823 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was Status.ended)
+2026-02-08 10:39:21.824 | ERROR    | sc2.protocol:__request:54 - Cannot receive: Connection already closed.
+2026-02-08 10:39:21.824 | INFO     | sc2.sc2process:_close_connection:241 - Closing connection at None...
+2026-02-08 10:39:21.825 | INFO     | sc2.sc2process:kill_all:36 - kill_switch: Process cleanup for 8 processes
+Game result: Result.Victory
+Game complete: Result.Victory
+Episode reward: 3.60
+Episode length: 251 steps
+Processing trajectory...
+Performing PPO update...
+
+Update complete:
+  Policy loss: -0.0032
+  Value loss: 0.0742
+  Entropy: 20.5467
+  Episode time: 1248.0s
+
+======================================================================
+Episode 5/10
+======================================================================
+
+Running spatial game: RLAgent vs IdleBot
+2026-02-08 10:40:00.400 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.launched (was None)
+2026-02-08 10:40:00.402 | INFO     | sc2.controller:create_game:42 - Creating new game
+2026-02-08 10:40:00.403 | INFO     | sc2.controller:create_game:43 - Map:     Simple64
+2026-02-08 10:40:00.403 | INFO     | sc2.controller:create_game:44 - Players: Bot SpatialRLBot(Terran), name='SpatialRLAgent'), Bot IdleBot(Terran), name='IdleBot')
+2026-02-08 10:40:00.410 | INFO     | sc2.protocol:_execute:120 - Client status changed to Status.init_game (was Status.launched)

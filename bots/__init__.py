@@ -9,6 +9,7 @@ from .stim_bot import StimBot
 from .tank_bot import TankBot
 from .bioball_bot import BioBallBot
 from .mech_bot import MechBot
+from .marine_medivac_bot import MarineMedivacBot
 
 __all__ = [
     "IdleBot",
@@ -20,4 +21,5 @@ __all__ = [
     "TankBot",
     "BioBallBot",
     "MechBot",
+    "MarineMedivacBot",
 ]

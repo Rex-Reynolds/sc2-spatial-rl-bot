@@ -56,7 +56,7 @@ def main():
     parser.add_argument(
         "--opponent",
         default="IdleBot",
-        choices=["IdleBot", "RushBot", "DefenseBot"],
+        choices=["IdleBot", "RushBot", "DefenseBot", "MarineMedivacBot"],
         help="Opponent bot to train against",
     )
     parser.add_argument(
@@ -95,15 +95,55 @@ def main():
         default=None,
         help="Path to opponent model for self-play (uses same model if not specified)",
     )
+    parser.add_argument(
+        "--advanced",
+        action="store_true",
+        help="Use AdvancedRLBot with expanded action/observation space (23 actions, 26 obs)",
+    )
+    parser.add_argument(
+        "--use-improved-rewards",
+        action="store_true",
+        help="Use ImprovedRLBot with better reward shaping (requires --advanced)",
+    )
+    parser.add_argument(
+        "--learning-rate",
+        type=float,
+        default=3e-4,
+        help="Learning rate for PPO (default: 3e-4)",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=64,
+        help="Batch size for PPO (default: 64)",
+    )
+    parser.add_argument(
+        "--gamma",
+        type=float,
+        default=0.99,
+        help="Discount factor gamma (default: 0.99)",
+    )
+    parser.add_argument(
+        "--n-steps",
+        type=int,
+        default=2048,
+        help="Number of steps to run per update (default: 2048)",
+    )
 
     args = parser.parse_args()
 
     print("=" * 70)
     print("STARCRAFT II RL TRAINING")
     print("=" * 70)
+    bot_type = 'Advanced (23 actions, 26 obs)' if args.advanced else 'Basic (7 actions, 11 obs)'
+    if args.advanced and args.use_improved_rewards:
+        bot_type += " + Improved Rewards"
+    print(f"Bot Type: {bot_type}")
     print(f"Opponent: {args.opponent}")
     print(f"Episodes: {args.episodes}")
     print(f"Model: {args.model_name}")
+    if args.learning_rate != 3e-4 or args.batch_size != 64 or args.gamma != 0.99 or args.n_steps != 2048:
+        print(f"Hyperparameters: lr={args.learning_rate}, batch={args.batch_size}, gamma={args.gamma}, n_steps={args.n_steps}")
     print("=" * 70)
     print()
 
@@ -126,7 +166,9 @@ def main():
     env = make_env(
         opponent=args.opponent if not args.self_play else "SelfPlay",
         opponent_policy=opponent_policy,
-        realtime=False
+        realtime=False,
+        advanced=args.advanced,
+        use_improved_rewards=args.use_improved_rewards,
     )
     env = Monitor(env)  # Wrap for logging
 
@@ -143,11 +185,11 @@ def main():
             "policy": "MlpPolicy",
             "env": env,
             "verbose": 1,
-            "learning_rate": 3e-4,
-            "n_steps": 2048,
-            "batch_size": 64,
+            "learning_rate": args.learning_rate,
+            "n_steps": args.n_steps,
+            "batch_size": args.batch_size,
             "n_epochs": 10,
-            "gamma": 0.99,
+            "gamma": args.gamma,
         }
 
         # Only add tensorboard_log if tensorboard is enabled

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SC2 Spatial RL Bot - Live Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #00ff00;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #00cc00;
+        }
+
+        .stats-box {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .stats-box h2 {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 10px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #00ff00;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #00cc00;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        button {
+            background: #00ff00;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #00cc00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #666;
+            color: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        #game-status {
+            text-align: center;
+            padding: 15px;
+            margin: 15px 0;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        #game-status.in-progress {
+            background: rgba(255, 255, 0, 0.2);
+            color: #ffff00;
+            border: 2px solid #ffff00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .results-table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #00ff00;
+        }
+
+        .results-table th {
+            background: rgba(0, 255, 0, 0.2);
+            font-weight: bold;
+        }
+
+        .results-table tr:hover {
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .win {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .loss {
+            color: #ff6666;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .error {
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff0000;
+            color: #ff6666;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .api-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .api-status.disconnected {
+            border-color: #ff0000;
+            color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    <div class="api-status" id="api-status">API: Connecting...</div>
+
+    <div class="container">
+        <h1>🤖 SC2 SPATIAL RL BOT</h1>
+        <p class="subtitle">Live Demo Interface</p>
+
+        <!-- Bot Status -->
+        <div class="stats-box">
+            <h2>📊 Bot Status</h2>
+            <div id="status" class="loading">Loading...</div>
+            <div id="status-grid" class="status-grid" style="display: none;"></div>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="stats-box">
+            <h2>🎮 Start New Game</h2>
+            <div id="game-status">Ready to play</div>
+            <div class="button-grid" id="game-buttons">
+                <button onclick="startGame('Easy')">vs Easy AI</button>
+                <button onclick="startGame('Medium')">vs Medium AI</button>
+                <button onclick="startGame('MediumHard')">vs Medium-Hard AI</button>
+                <button onclick="startGame('Hard')">vs Hard AI</button>
+                <button onclick="startGame('VeryHard')">vs Very Hard AI</button>
+            </div>
+        </div>
+
+        <!-- Recent Results -->
+        <div class="stats-box">
+            <h2>📈 Performance Statistics</h2>
+            <div id="results" class="loading">Loading...</div>
+        </div>
+
+        <!-- Game History -->
+        <div class="stats-box">
+            <h2>📜 Recent Games</h2>
+            <div id="game-history" class="loading">Loading...</div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+        let pollInterval;
+        let gameInProgress = false;
+
+        // Update API status indicator
+        function updateAPIStatus(connected) {
+            const statusEl = document.getElementById('api-status');
+            if (connected) {
+                statusEl.textContent = 'API: Connected';
+                statusEl.classList.remove('disconnected');
+            } else {
+                statusEl.textContent = 'API: Disconnected';
+                statusEl.classList.add('disconnected');
+            }
+        }
+
+        // Start a new game
+        async function startGame(difficulty) {
+            if (gameInProgress) {
+                alert('Game already in progress! Please wait...');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/play_game`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        opponent: difficulty,
+                        map_name: 'Simple64',
+                        realtime: false
+                    })
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || 'Failed to start game');
+                }
+
+                const data = await response.json();
+                gameInProgress = true;
+                updateGameStatus(`Game #${data.game_id} vs ${difficulty} in progress...`, true);
+                disableGameButtons(true);
+
+                // Poll for completion
+                pollGameStatus();
+            } catch (error) {
+                showError(`Failed to start game: ${error.message}`);
+            }
+        }
+
+        // Poll game status
+        function pollGameStatus() {
+            if (pollInterval) clearInterval(pollInterval);
+
+            pollInterval = setInterval(async () => {
+                const status = await refreshStatus(false);
+                if (!status.game_in_progress && gameInProgress) {
+                    // Game finished
+                    gameInProgress = false;
+                    clearInterval(pollInterval);
+                    updateGameStatus('Ready to play', false);
+                    disableGameButtons(false);
+                    await refreshResults();
+                    await refreshGameHistory();
+                }
+            }, 2000); // Check every 2 seconds
+        }
+
+        // Update game status message
+        function updateGameStatus(message, inProgress) {
+            const statusEl = document.getElementById('game-status');
+            statusEl.textContent = message;
+            if (inProgress) {
+                statusEl.classList.add('in-progress');
+            } else {
+                statusEl.classList.remove('in-progress');
+            }
+        }
+
+        // Enable/disable game buttons
+        function disableGameButtons(disabled) {
+            const buttons = document.querySelectorAll('#game-buttons button');
+            buttons.forEach(button => button.disabled = disabled);
+        }
+
+        // Refresh bot status
+        async function refreshStatus(showLoading = true) {
+            try {
+                const response = await fetch(`${API_URL}/status`);
+                const data = await response.json();
+
+                const statusDiv = document.getElementById('status');
+                const statusGrid = document.getElementById('status-grid');
+
+                if (data.loaded) {
+                    statusDiv.style.display = 'none';
+                    statusGrid.style.display = 'grid';
+                    statusGrid.innerHTML = `
+                        <div class="stat-item">
+                            <div class="stat-label">Model Status</div>
+                            <div class="stat-value">✓ Loaded</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Games Played</div>
+                            <div class="stat-value">${data.games_played}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Wins</div>
+                            <div class="stat-value">${data.wins}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Losses</div>
+                            <div class="stat-value">${data.losses}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Win Rate</div>
+                            <div class="stat-value">${(data.win_rate * 100).toFixed(1)}%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Game Status</div>
+                            <div class="stat-value">${data.game_in_progress ? '🎮 Playing' : '⏸️ Idle'}</div>
+                        </div>
+                    `;
+                } else {
+                    statusDiv.style.display = 'block';
+                    statusGrid.style.display = 'none';
+                    statusDiv.innerHTML = '<div class="error">⚠️ No model loaded. Use API to load a model first.</div>';
+                }
+
+                updateAPIStatus(true);
+                return data;
+            } catch (error) {
+                updateAPIStatus(false);
+                if (showLoading) {
+                    showError(`Failed to connect to API server: ${error.message}`);
+                }
+                return null;
+            }
+        }
+
+        // Refresh results summary
+        async function refreshResults() {
+            try {
+                const response = await fetch(`${API_URL}/results?limit=10`);
+                const data = await response.json();
+
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.classList.remove('loading');
+
+                if (data.total_games === 0) {
+                    resultsDiv.innerHTML = '<p>No games played yet. Start a game to see statistics!</p>';
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="status-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">Total Games</div>
+                                <div class="stat-value">${data.total_games}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Wins</div>
+                                <div class="stat-value">${data.wins}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Losses</div>
+                                <div class="stat-value">${data.losses}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Win Rate</div>
+                                <div class="stat-value">${(data.win_rate * 100).toFixed(1)}%</div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Failed to load results:', error);
+            }
+        }
+
+        // Refresh game history
+        async function refreshGameHistory() {
+            try {
+                const response = await fetch(`${API_URL}/results?limit=10`);
+                const data = await response.json();
+
+                const historyDiv = document.getElementById('game-history');
+                historyDiv.classList.remove('loading');
+
+                if (data.recent_games.length === 0) {
+                    historyDiv.innerHTML = '<p>No games in history yet.</p>';
+                } else {
+                    let tableHTML = `
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Game #</th>
+                                    <th>Opponent</th>
+                                    <th>Map</th>
+                                    <th>Result</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+
+                    data.recent_games.reverse().forEach(game => {
+                        const resultClass = game.result === 'Win' ? 'win' : 'loss';
+                        const time = new Date(game.timestamp).toLocaleTimeString();
+                        tableHTML += `
+                            <tr>
+                                <td>${game.game_id}</td>
+                                <td>${game.opponent}</td>
+                                <td>${game.map_name}</td>
+                                <td class="${resultClass}">${game.result}</td>
+                                <td>${time}</td>
+                            </tr>
+                        `;
+                    });
+
+                    tableHTML += '</tbody></table>';
+                    historyDiv.innerHTML = tableHTML;
+                }
+            } catch (error) {
+                console.error('Failed to load game history:', error);
+            }
+        }
+
+        // Show error message
+        function showError(message) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="error">⚠️ ${message}</div>`;
+        }
+
+        // Auto-refresh every 5 seconds
+        setInterval(() => {
+            if (!gameInProgress) {
+                refreshStatus(false);
+                refreshResults();
+                refreshGameHistory();
+            }
+        }, 5000);
+
+        // Initial load
+        (async () => {
+            await refreshStatus();
+            await refreshResults();
+            await refreshGameHistory();
+        })();
+    </script>
+</body>
+</html>
